@@ -22,15 +22,11 @@ jobs:
           - ~/.npm
           - ~/.cache
         key: v1-dependencies-{{ checksum "package.json" }}
-
       - run: npm run build
-
-
-
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  myniverse-workflow:
-    jobs:
-      - build
+#workflows:
+#  myniverse-workflow:
+#    jobs:
+#      - build
