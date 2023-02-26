@@ -1,0 +1,18 @@
+.App {
+  max-width: calc(100% - 2em);
+  margin: 0 auto;
+}
+
+.scroll-menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  padding: 0.5em;
+  bottom: 1em;
+  right: 1em;
+
+  > button:first-child {
+    margin-bottom: 0.5em;
+    min-width: 2.8em;
+  }
+}

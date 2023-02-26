@@ -1,0 +1,27 @@
+.server-stats {
+  align-items: baseline;
+  display: flex;
+  font-size: small;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin-right: .5em;
+  }
+
+  svg {
+    margin-right: .2em;
+    vertical-align: center;
+  }
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

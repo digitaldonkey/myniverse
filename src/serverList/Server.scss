@@ -1,0 +1,98 @@
+.server {
+  border: 2px solid transparent;
+  line-height: 1.4;
+  padding: .2em;
+  position: relative;
+  text-align: left;
+  transition: transform .2s;
+
+  &:nth-child(odd) {
+    background: var(--background-light);
+  }
+
+  // Extra info next to Icon
+  .no-trends,
+  .disabled {
+    color: var(--color-error);
+    margin-right: 2.2em;
+    text-align: right;
+  }
+
+  .is-unreachable,
+  .has-error,
+  .is-new {
+    padding-bottom: .25em;
+    padding-left: .5em;
+    >h3 {
+      margin-top: 0;
+    }
+
+  }
+
+  .is-unreachable,
+  .has-error {
+    h3 {
+      margin-bottom: 0;
+      color: var(--color-error);
+    }
+  }
+
+  .is-new {
+    color: var(--rt-color-warning);
+  }
+
+  .update-server-url {
+    display: flex;
+
+    > input {
+      flex-grow: 1;
+    }
+  }
+}
+
+.server-status {
+  position: absolute;
+  right: .3em;
+
+  &--active {
+    svg {
+      fill: var(--color-success);
+    }
+  }
+
+  &--unreachable {
+    fill: var(----color-error);
+  }
+}
+
+.server-info {
+  width: 100%;
+
+  .server-info--details {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+
+    img {
+      height: 4rem;
+      margin-right: .5em;
+      width: auto;
+    }
+  }
+
+  .server-description {
+    max-width: 100%;
+    overflow: scroll;
+  }
+}
+
+.server-info--data {
+  align-items: baseline;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: .25em;
+
+  h6 {
+    margin: 0;
+  }
+}

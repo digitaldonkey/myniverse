@@ -1,0 +1,49 @@
+.server-list {
+  margin-top: .5em;
+}
+
+.button-server-list-toggle {
+  font-size: large;
+}
+
+.button-peer-settings-toggle {
+  float: right;
+}
+.server-list--form {
+  display: flex;
+  margin: .5em;
+  padding: .5em 0 0;
+  position: relative;
+  width: 100%;
+
+  input {
+    flex-grow: 1;
+    min-width: 40vw;
+  }
+}
+
+.status-count {
+  align-items: center;
+  display: flex;
+  margin: .25em 0;
+  min-height: 2.2em;
+  padding: .25em .5em;
+  &--item {
+    list-style-type: none;
+    margin-right: 1em;
+  }
+}
+
+.filter-order,
+.filter-status {
+  align-items: center;
+  display: flex;
+
+  .select-wrapper {
+    color: #000;
+    flex-grow: 1;
+    font-size: small;
+    margin: 0 .5em;
+    min-width: 20em;
+  }
+}

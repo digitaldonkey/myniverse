@@ -1,0 +1,116 @@
+.button {
+  align-items: center;
+  background: transparent;
+  border: 1px dotted var(--color-text);
+  border-radius: .25em;
+  color: var(--color-text);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: small;
+  line-height: 1.2;
+  margin: .5em .5em .5em 0;
+  min-height: 2.2em;
+  padding-left: .5em;
+  padding-right: .5em;
+  position: relative;
+
+  &:hover {
+    background: var(--color-accent-darker);
+    border: 1px solid var(--color-accent);
+  }
+
+  &.primary {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-text);
+
+    &:hover {
+      background: var(--color-accent-darker);
+    }
+  }
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter {
+  align-items: center;
+  border: 1px solid var(--background-menu-color);
+  display: inline-flex; // required to center range-input.
+  margin: .25em .25em .25em 0;
+  padding: .25em;
+  vertical-align: middle;
+
+  &:focus-within,
+  &:hover {
+    border-color: var(--color-accent);
+  }
+}
+
+.menu {
+  align-items: center;
+  background-color: var(--background-menu-color);
+  display: flex;
+  flex-wrap: wrap;
+
+  list-style-type: none;
+  padding: 0 .25em;
+  z-index: 10;
+
+  span {
+    align-items: center;
+    display: inline-flex;
+  }
+}
+
+.menu-panel {
+  background: var(--background-menu-color--darker);
+  border: 1px solid var(--border-menu-color);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin: -.35em 0 .5em;
+  padding: .25em .5em;
+  width: 100%;
+}
+
+.filter-panel--panel {
+  &:active,
+  &:hover {
+    border-color: transparent;
+  }
+
+  &.active {
+    background: var(--background-menu-color--darker);
+    border-color: var(--border-menu-color);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    margin-bottom: 0;
+    z-index: 1;
+
+    .button {
+      border-color: transparent;
+    }
+  }
+}
+
+.filter-panel--button {
+  align-items: center;
+  display: flex;
+  font-size: small;
+  justify-content: center;
+  margin: .25em .25em 0;
+
+  &:active {
+    border-color: transparent;
+  }
+
+  .threshold-icon {
+    display: inline-block;
+    font-size: 1.6em;
+    margin-right: .25em;
+  }
+}

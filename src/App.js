@@ -1,57 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useRef } from 'react';
+import './App.scss';
+import Colors from './Colors';
+import { TrendsGlobal } from './TrendsGlobal/TrendsGlobal';
+import './scss/base.scss';
+import './scss/global.scss';
+import './scss/react-tooltip.scss';
+import { ServerList } from './serverList/ServerList';
 
 function App() {
+  const trendsPos = useRef(null);
+  const scrollToTrends = () => trendsPos.current.scrollIntoView();
+  const serversPos = useRef(null);
+  const scrollToServers = (e) => {
+    serversPos.current.scrollIntoView();
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
+    <>
+      <Colors />
+      <div className="App">
+        <h2>Trends in your myniverse</h2>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Trends aggregated from <strong>the top 20</strong> of{' '}
+          <a href="#servers" onClick={scrollToServers}>
+            below
+          </a>{' '}
+          servers with status 'active'
         </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+
+        <div ref={trendsPos}></div>
+        <TrendsGlobal />
+
+        <div ref={serversPos}></div>
+        <ServerList />
+
+        <div className="scroll-menu menu">
+          <button onClick={scrollToTrends}>Trends</button>
+          <button onClick={scrollToServers}>Servers</button>
+        </div>
+      </div>
+    </>
   );
 }
 

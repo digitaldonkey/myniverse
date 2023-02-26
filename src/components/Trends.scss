@@ -1,0 +1,23 @@
+.trends {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  width: 100%;
+
+  // Legend
+  //.recharts-legend-item-text {
+  //}
+
+  .recharts-layer {
+    // Improve number readability.
+    font-family: "Droid Serif", math;
+  }
+
+  .recharts-layer.yAxis .recharts-cartesian-axis-ticks  {
+    // Emphasize max value.
+    .recharts-cartesian-axis-tick:last-child {
+      font-size: 1.2em;
+    }
+  }
+}
+
