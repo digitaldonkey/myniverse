@@ -8,25 +8,25 @@ jobs:
   build:
     docker:
       - image: cimg/node:lts
-    steps:
-      - checkout
-      - run: node --version
-      - restore_cache:
-        keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
-      - run: npm install
-      - save_cache:
-        paths:
-          - node_modules
-          - ~/.npm
-          - ~/.cache
-        key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm run build
+steps:
+  - checkout
+  - run: node --version
+  - restore_cache:
+    keys:
+      - v1-dependencies-{{ checksum "package.json" }}
+      - v1-dependencies-
+  - run: npm install
+  - save_cache:
+    paths:
+      - node_modules
+      - ~/.npm
+      - ~/.cache
+    key: v1-dependencies-{{ checksum "package.json" }}
+  - run: npm run build
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-#workflows:
-#  myniverse-workflow:
-#    jobs:
-#      - build
+workflows:
+  myniverse-workflow:
+    jobs:
+      - build
