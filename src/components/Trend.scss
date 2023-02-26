@@ -1,0 +1,53 @@
+.trend {
+  max-width: 20em;
+  width: 100%;
+}
+
+.recharts-responsive-container {
+  aspect-ratio: 16 / 9;
+  max-height: 11.25em;
+}
+
+.recharts-cartesian-axis-tick-value[text-anchor='start'] {
+  fill: var(--color-stats-troots);
+}
+
+.trend-urls {
+  margin-right: 3.5em;
+  max-height: 3em;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-left: 1em;
+
+  &::-webkit-scrollbar-track {
+    background: var(--color-accent-darker);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+
+    &:hover {
+      background: var(--color-text);
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: .5em;
+  }
+}
+
+.trend-url {
+  overflow: hidden;
+  padding-right: .2em;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  > a {
+    &:focus,
+    &:hover {
+      outline: 0;
+      text-decoration: underline;
+    }
+  }
+}

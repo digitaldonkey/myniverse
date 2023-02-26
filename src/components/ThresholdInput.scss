@@ -1,0 +1,16 @@
+.threshold-input {
+  align-items: center;
+  display: inline-flex;
+  justify-content: right;
+  text-align: right;
+
+  .threshold-input--value {
+    font-weight: bold;
+    margin-left: .25em;
+    text-align: right;
+  }
+
+  input[type="range"] {
+    cursor: pointer;
+  }
+}

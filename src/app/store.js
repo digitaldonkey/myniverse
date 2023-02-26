@@ -1,8 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import serverListSlice from '../redux/myniverse';
 
+export const rootReducer = combineReducers({ myniverse: serverListSlice });
 export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
+  reducer: rootReducer,
 });
