@@ -43,7 +43,7 @@ jobs:
           command: |            
             ls -al build/
             ssh -t $SSH_USER@$SSH_HOST "rm -rf httpdocs/*"
-            scp -r $SSH_USER@$SSH_HOST build/* httpdocs
+            scp -r build/* $SSH_USER@$SSH_HOST:/var/www/vhosts/myniverse.org/httpdocs 
 
 
 # Invoke jobs via workflows
