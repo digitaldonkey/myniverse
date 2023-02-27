@@ -37,12 +37,11 @@ jobs:
     steps:
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
-          at: build
+          at: .
       - run:
           name: Deploy Over SSH
           command: |            
             ls -al build/
-            ls -al project/build
 #            ssh $SSH_USER@$SSH_HOST "<remote deploy command>"
 
 
