@@ -42,7 +42,7 @@ jobs:
           name: Deploy Over SSH
           command: |            
             ls -al build/
-#            ssh $SSH_USER@$SSH_HOST "<remote deploy command>"
+            ssh -t $SSH_USER@$SSH_HOST "rm -rf htdocs/*"
 
 
 # Invoke jobs via workflows
