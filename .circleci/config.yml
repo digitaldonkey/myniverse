@@ -28,7 +28,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm run build
       - persist_to_workspace:
-          root: .
+          root: ~/project
           paths:
             - build
   deploy:
@@ -41,7 +41,11 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            ls -al build
+            ls -al project/build/build/
+            ls -al project/build
+            ls -al build/build/
+            
+
 #            ssh $SSH_USER@$SSH_HOST "<remote deploy command>"
 
 
