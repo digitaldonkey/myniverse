@@ -27,6 +27,9 @@ jobs:
             - ~/.cache
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm run build
+      - persist_to_workspace:
+          root: ~/project
+          paths: ./build
   deploy:
     machine:
       enabled: true
@@ -44,8 +47,7 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
-      - deploy
-#      - build
-#      - deploy:
-#          requires:
-#            - build # only deploy once build job has completed
+      - build
+      - deploy:
+          requires:
+            - build # only deploy once build job has completed
