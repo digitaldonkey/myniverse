@@ -39,7 +39,7 @@ jobs:
           command: |
             echo $CIRCLE_WORKING_DIRECTORY
             ls -al "$CIRCLE_WORKING_DIRECTORY"
-            ssh $SSH_USER@$SSH_HOST "<remote deploy command>"
+#            ssh $SSH_USER@$SSH_HOST "<remote deploy command>"
 
 
 # Invoke jobs via workflows
