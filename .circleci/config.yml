@@ -42,7 +42,8 @@ jobs:
           name: Deploy Over SSH
           command: |            
             ls -al build/
-            ssh -t $SSH_USER@$SSH_HOST "rm -rf htdocs/*"
+            ssh -t $SSH_USER@$SSH_HOST "rm -rf httpdocs/*"
+            scp -r $SSH_USER@$SSH_HOST build/* httpdocs
 
 
 # Invoke jobs via workflows
