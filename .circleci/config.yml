@@ -41,7 +41,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            ls -al "$CIRCLE_WORKING_DIRECTORY/build"
+            ls -al build
 #            ssh $SSH_USER@$SSH_HOST "<remote deploy command>"
 
 
