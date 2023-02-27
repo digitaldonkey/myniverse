@@ -28,12 +28,16 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm run build
       - persist_to_workspace:
-          root: ~/project
-          paths: ./build
+          root: .
+          paths:
+            - build
   deploy:
     machine:
       enabled: true
     steps:
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: build
       - run:
           name: Deploy Over SSH
           command: |
