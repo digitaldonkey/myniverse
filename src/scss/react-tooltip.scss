@@ -22,6 +22,7 @@
   width: max-content;
   will-change: opacity, visibility;
   z-index: 999;
+  max-width: calc(100% - 1em);
 
   ul {
     margin-bottom: .5em;
