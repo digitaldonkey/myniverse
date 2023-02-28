@@ -22,7 +22,7 @@ export default function ServerTrends(props) {
   return (
     <>
       <div className="filter server-min-troot-threshold">
-        <label>min Toots</label>
+        <div className="label">min Toots</div>
         <ThresholdInput
           currentMinTootThreshold={currentMinTootThreshold}
           action={(e) => {

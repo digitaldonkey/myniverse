@@ -34,19 +34,45 @@
 .filters {
   display: flex;
   flex-wrap: wrap;
+
+  @media (min-width: 30em) {
+  }
+
 }
 
 .filter {
-  align-items: center;
   border: 1px solid var(--background-menu-color);
-  display: inline-flex; // required to center range-input.
   margin: .25em .25em .25em 0;
   padding: .25em;
   vertical-align: middle;
+  //width: 100%;
+
+
+  @media (min-width: 30em) {
+    align-items: center;
+    display: inline-flex; // required to center range-input.
+    //width: auto;
+  }
 
   &:focus-within,
   &:hover {
     border-color: var(--color-accent);
+  }
+
+  .label {
+    line-height: 1.6;
+    margin-right: .25em;
+  }
+
+  .select-wrapper {
+    color: #000;
+    flex-grow: 1;
+    font-size: small;
+
+    @media (min-width: 30em) {
+      margin: 0 .5em;
+      min-width: 20em;
+    }
   }
 }
 
@@ -77,6 +103,8 @@
 }
 
 .filter-panel--panel {
+  display: flex;
+
   &:active,
   &:hover {
     border-color: transparent;
@@ -87,7 +115,7 @@
     border-color: var(--border-menu-color);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-
+    border-bottom-color: transparent;
     margin-bottom: 0;
     z-index: 1;
 

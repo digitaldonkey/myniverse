@@ -14,6 +14,7 @@ import {
 import Server from './Server';
 import './ServerList.scss';
 import { filterByStatus, getServerStatus } from './ServerStatus';
+import InfoBubble from "../components/InfoBubble";
 
 export function ServerList() {
   const dispatch = useDispatch();
@@ -81,7 +82,7 @@ export function ServerList() {
       {showServers ? (
         <div>
           <div className="menu">
-            <div className="filter" id="server-filter-min-toots">
+            <div className="filter" >
               <label>Global min toots Toots</label>
               <ThresholdInput
                 currentMinTootThreshold={serverDefaultTootThreshold}
@@ -94,10 +95,8 @@ export function ServerList() {
                 }}
                 maxValue={20000}
               />
-              <Tooltip
-                id="tooltip-server-filter-min-toots"
-                anchorSelect="#server-filter-min-toots"
-                place="bottom"
+              <InfoBubble
+                id="server-filter-min-toots"
                 content="Global minimum troots before trend is displayed within server list."
               />
             </div>
@@ -119,7 +118,7 @@ export function ServerList() {
               </span>
             </div>
 
-            <div className="filter filter-status" id="server-filter-status">
+            <div className="filter filter-status">
               <div className="label">Filter by status</div>
               <div className="select-wrapper">
                 <Select
@@ -152,22 +151,24 @@ export function ServerList() {
               </span>
             </div>
 
-            <ul className="status-count filter">
-              {getServerStatus().map((s) => (
-                <li className="status-count--item" key={s.value} id={s.value}>
-                  {s.value}:{' '}
-                  {filterByStatus(servers, getServerStatus(s.value)).length}
-                  <Tooltip
-                    id="tooltip-status-count filter"
-                    anchorSelect={`#${s.value}`}
-                    place="bottom"
-                    content={s.label}
-                  />
-                </li>
-              ))}
-            </ul>
+            <div className="status-count  filter">
+              <ul className="list">
+                {getServerStatus().map((s) => (
+                  <li className="item" key={s.value} id={s.value}>
+                    <span>{s.value}:</span>
+                    <span>{filterByStatus(servers, getServerStatus(s.value)).length}</span>
 
-            <div className="filter filter-order" id="server-filter-order">
+                    <Tooltip
+                      anchorSelect={`#${s.value}`}
+                      place="bottom"
+                      content={s.label}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="filter filter-order">
               <div className="label">Ordering</div>
               <div className="select-wrapper">
                 <Select
@@ -189,9 +190,7 @@ export function ServerList() {
                 />
               </div>
             </div>
-            <div
-              id="server-peer-settings"
-              className={`filter filter-panel--panel ${
+            <div className={`filter filter-panel--panel ${
                 showPeerSettings ? 'active' : ''
               }`}
             >
@@ -205,12 +204,18 @@ export function ServerList() {
                 <span className="threshold-icon">⚙</span>
                 <span>Peer settings</span>
               </button>
-              <Tooltip
-                id="tooltip-server-peer-settings"
-                anchorSelect="#server-peer-settings"
-                place="bottom"
-                content="Peering conditions when processing add peers."
-              />
+              {/*<Tooltip*/}
+              {/*  id="tooltip-server-peer-settings"*/}
+              {/*  anchorSelect="#server-peer-settings"*/}
+              {/*  place="bottom"*/}
+              {/*  content="Peering conditions when processing add peers."*/}
+              {/*/>*/}
+              {!showPeerSettings &&
+                <InfoBubble
+                  id="server-peer-settings"
+                  content="Peering conditions when processing add peers."
+                />
+              }
             </div>
             {showPeerSettings && (
               <div className="menu-panel">

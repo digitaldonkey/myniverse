@@ -1,0 +1,21 @@
+.info-bubble {
+  .icon {
+    background: var(--background-light);
+    border: 1px solid var(--color-text);
+    border-radius: 100%;
+    display: inline-block;
+    font-family: 'Arial Black', sans-serif;
+    height: 1.1em;
+    margin: 0 .25em 0 .5em;
+    opacity: .7;
+    text-align: center;
+    width: 1.1em;
+  }
+
+  &.inline {
+    .icon {
+      font-size: small;
+      margin: 0 .5em;
+    }
+  }
+}

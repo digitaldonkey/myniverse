@@ -12,5 +12,9 @@
 
   input[type="range"] {
     cursor: pointer;
+    display: none;
+    @media (min-width: 20em) {
+      display: inline-block;
+    }
   }
 }

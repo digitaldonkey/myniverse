@@ -5,6 +5,8 @@
   position: relative;
   text-align: left;
   transition: transform .2s;
+  max-width: 100%;
+  overflow: scroll;
 
   &:nth-child(odd) {
     background: var(--background-light);
@@ -71,6 +73,7 @@
   .server-info--details {
     align-items: center;
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
 
     img {

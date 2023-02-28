@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Tooltip } from 'react-tooltip';
 import ThresholdInput from '../components/ThresholdInput';
 import Trends from '../components/Trends';
 import {
@@ -9,6 +8,7 @@ import {
   updateAllTrends,
   updateConfig,
 } from '../redux/myniverse';
+import InfoBubble from "../components/InfoBubble";
 
 export function TrendsGlobal() {
   const trends = useSelector(getTrendsList);
@@ -43,7 +43,7 @@ export function TrendsGlobal() {
       <div className="trends-header">
         <div className="menu">
           <div className="filters">
-            <div className="filter" id="trends-global--filter-min-toots">
+            <div className="filter">
               <label>Min Toots</label>
               <ThresholdInput
                 currentMinTootThreshold={filterMinToots}
@@ -60,14 +60,13 @@ export function TrendsGlobal() {
                 }}
                 maxValue={20000}
               />
-              <Tooltip
-                anchorSelect="#trends-global--filter-min-toots"
-                place="bottom"
+              <InfoBubble
+                id="trends-global-min-toots"
                 content="Minimum of Toots with the tag."
               />
             </div>
 
-            <div className="filter" id="filter-min-urls">
+            <div className="filter">
               <label>Min Servers</label>
               <ThresholdInput
                 currentMinTootThreshold={filterMinUrls}
@@ -84,14 +83,13 @@ export function TrendsGlobal() {
                 }}
                 maxValue={50}
               />
-              <Tooltip
-                anchorSelect="#filter-min-urls"
-                place="bottom"
+              <InfoBubble
+                id="filter-min-urls"
                 content="Minimum number of servers the trend is on."
               />
             </div>
 
-            <div className="filter" id="filter-max-total">
+            <div className="filter">
               <label>Max total</label>
               <ThresholdInput
                 currentMinTootThreshold={filterMaxTotal}
@@ -109,37 +107,37 @@ export function TrendsGlobal() {
                 maxValue={500}
               />
               of {filteredMinUrls.length} filtered
-              <Tooltip
-                anchorSelect="#filter-max-total"
-                place="bottom"
+              <InfoBubble
+                id="filter-max-total"
                 content="Maximum total Tags visible. Reduce if rendering is too slow."
               />
             </div>
 
-            <div className="filter" id="info-total">
+            <div className="filter">
               <label>Total Trends {trends.length}</label>
-              <Tooltip
-                anchorSelect="#info-total"
-                place="bottom"
+              <InfoBubble
+                id="info-total"
                 content="All trends available at all servers."
               />
             </div>
           </div>
 
-          <button
-            className="button primary"
-            id="info-update-all"
-            onClick={() => {
-              dispatch(updateAllTrends());
-            }}
-          >
-            Update all your Trends
-          </button>
-          <Tooltip
-            anchorSelect="#info-update-all"
-            place="bottom"
-            content="All trends servers, by requeing all servers with active state."
-          />
+          <div className="filter">
+            <button
+              className="button primary"
+              onClick={() => {
+                dispatch(updateAllTrends());
+              }}
+            >
+              Update all your Trends
+            </button>
+            <InfoBubble
+              id="info-update-all"
+              content="All trends servers, by requeing all servers with active state."
+            />
+          </div>
+
+
           {/*<button*/}
           {/*  className="button"*/}
           {/*  id="info-delete-old"*/}
@@ -149,11 +147,10 @@ export function TrendsGlobal() {
           {/*>*/}
           {/*  Delete old trends*/}
           {/*</button>*/}
-          <Tooltip
-            anchorSelect="#info-delete-old"
-            place="bottom"
-            content="Removes trends older than 24h."
-          />
+          {/*<InfoBubble*/}
+          {/*  id="info-delete-old"*/}
+          {/*  content="Removes trends older than 24h."*/}
+          {/*/>*/}
         </div>
       </div>
       <Trends
