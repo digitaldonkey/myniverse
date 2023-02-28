@@ -35,8 +35,8 @@ function App() {
         <ServerList />
 
         <div className="scroll-menu menu">
-          <button onClick={scrollToTrends}>Trends</button>
-          <button onClick={scrollToServers}>Servers</button>
+          <button className="button" onClick={scrollToTrends}>Trends</button>
+          <button className="button" onClick={scrollToServers}>Servers</button>
         </div>
       </div>
     </>

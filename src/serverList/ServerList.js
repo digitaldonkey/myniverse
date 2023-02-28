@@ -195,7 +195,7 @@ export function ServerList() {
               }`}
             >
               <button
-                className="filter-panel--button"
+                className="filter-panel--button button"
                 type="button"
                 onClick={() => {
                   setShowPeerSettings(!showPeerSettings);
@@ -311,7 +311,7 @@ export function ServerList() {
                 </div>
 
                 <button
-                  className="button-peer-settings-toggle"
+                  className="primary button button-peer-settings-toggle"
                   type="button"
                   onClick={() => {
                     setShowPeerSettings(!showPeerSettings);

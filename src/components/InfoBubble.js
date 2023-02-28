@@ -1,10 +1,10 @@
 import { Tooltip } from 'react-tooltip';
-import './InfoBubble.scss';
+import InfoBubbleIcon from "./InfoBubbleIcon";
 
 export default function InfoBubble(props) {
   return (
     <span className={`info-bubble ${props.inline ? 'inline' : ''}`}>
-      <div className="icon" id={props.id}>?</div>
+      <InfoBubbleIcon id={props.id} />
       <Tooltip
         anchorSelect={`#${props.id}`}
         place="bottom"

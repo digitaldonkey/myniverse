@@ -11,6 +11,7 @@ import {
 import './Server.scss';
 import { getServerStatus, getStatusIcon } from "./ServerStatus";
 import ServerTrends from './ServerTrends';
+import InfoBubbleIcon from "../components/InfoBubbleIcon";
 
 export default function Server(props) {
   const { url, instance, status, error } = props.server;
@@ -50,24 +51,32 @@ export default function Server(props) {
               <ServerStats stats={instance.stats} />
             </div>
           </div>
-          <button
-            className="button primary button-update-trends"
-            onClick={() => {
-              dispatch(getServerTrends(props.server));
-            }}
-          >
-            {status === 'disabled'
-              ? `Activate and add trends`
-              : `Update trends`}
-          </button>
-          <button
-            className="button button-add-peers"
-            onClick={() => {
-              dispatch(addPeerInstances(url));
-            }}
-          >
-            Add peers
-          </button>
+          <div className="filter">
+
+            <button
+              className="button primary"
+              onClick={() => {
+                dispatch(getServerTrends(props.server));
+              }}
+            >
+              {status === 'disabled'
+                ? `Activate and add trends`
+                : `Update trends`}
+            </button>
+            <InfoBubbleIcon className="button-update-trends" />
+          </div>
+          <div className="filter">
+            <button
+              className="button"
+              onClick={() => {
+                dispatch(addPeerInstances(url));
+              }}
+            >
+              Add peers
+            </button>
+            <InfoBubbleIcon className="button-add-peers" />
+          </div>
+
           {props.server.trends && <ServerTrends server={props.server} />}
         </div>
       )}

@@ -34,10 +34,6 @@
 .filters {
   display: flex;
   flex-wrap: wrap;
-
-  @media (min-width: 30em) {
-  }
-
 }
 
 .filter {
@@ -97,7 +93,7 @@
   border: 1px solid var(--border-menu-color);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  margin: -.35em 0 .5em;
+  margin: 0 0 .5em;
   padding: .25em .5em;
   width: 100%;
 }
@@ -105,8 +101,7 @@
 .filter-panel--panel {
   display: flex;
 
-  &:active,
-  &:hover {
+  &:active {
     border-color: transparent;
   }
 
@@ -116,7 +111,8 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-color: transparent;
-    margin-bottom: 0;
+    margin-bottom: -.20em;
+    padding-bottom: .8em;
     z-index: 1;
 
     .button {
@@ -132,8 +128,10 @@
   justify-content: center;
   margin: .25em .25em 0;
 
-  &:active {
+  .filter-panel--panel.active & {
+    background: transparent;
     border-color: transparent;
+    color: var(--color-text);
   }
 
   .threshold-icon {

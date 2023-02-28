@@ -3,16 +3,27 @@
   margin: 0 auto;
 }
 
-.scroll-menu {
+.menu.scroll-menu {
+  bottom: 1em;
   display: flex;
   flex-direction: column;
+  padding: .5em;
   position: fixed;
-  padding: 0.5em;
-  bottom: 1em;
   right: 1em;
+  border-radius: .25em;
+  background-color: var(--background-menu-color--darker);
+  //
+  >button {
+    margin: 0;
+    border: 1px solid var(--border-menu-color);
+    &:hover {
+      border-color: var(--color-text);
+    }
+  }
+
 
   > button:first-child {
-    margin-bottom: 0.5em;
+    margin-bottom: .5em;
     min-width: 2.8em;
   }
 }
