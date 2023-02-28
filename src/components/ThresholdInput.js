@@ -31,6 +31,11 @@ export default function ThresholdInput(props) {
         onChange={(e) => setThreshold(e.target.value)}
         onKeyUpCapture={(e) => action(e)}
         onMouseUp={(e) => action(e)}
+        // @see https://github.com/facebook/react/issues/13492
+        onTouchEnd={(e) => {
+          e.preventDefault();
+          action(e)
+        }}
       />
     </div>
   );
