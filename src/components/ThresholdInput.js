@@ -18,7 +18,7 @@ export default function ThresholdInput(props) {
         value={threshold}
         onChange={(e) => action(e)}
         debounceTimeout={300}
-        style={{ width: `${maxValue.toString().length / 2 + 0.25}em` }}
+        style={{ width: `${maxValue.toString().length / 2 + 1}em` }}
       />
       <input
         name="threshold"
