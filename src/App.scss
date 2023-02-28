@@ -1,26 +1,25 @@
 .App {
-  max-width: calc(100% - 1em);
+  width: calc(100% - 1em);
   margin: 0 auto;
 }
 
 .menu.scroll-menu {
+  background-color: var(--background-menu-color--darker);
+  border-radius: .25em;
   bottom: 1em;
   display: flex;
   flex-direction: column;
   padding: .5em;
   position: fixed;
   right: 1em;
-  border-radius: .25em;
-  background-color: var(--background-menu-color--darker);
-  //
+
   >button {
-    margin: 0;
     border: 1px solid var(--border-menu-color);
+    margin: 0;
     &:hover {
       border-color: var(--color-text);
     }
   }
-
 
   > button:first-child {
     margin-bottom: .5em;

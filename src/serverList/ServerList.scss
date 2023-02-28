@@ -20,7 +20,9 @@
     flex-grow: 1;
     flex-shrink: 1;
   }
-  >button{
+
+  .button{
+    margin: 0;
     font-size: small;
     @media (min-width: 30em) {
       font-size: unset;

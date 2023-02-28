@@ -56,7 +56,7 @@ export function ServerList() {
           }}
         >
           <button
-            className="button-server-list-toggle"
+            className="button button-server-list-toggle"
             type="button"
             onClick={() => {
               if (!showServers) {
@@ -76,7 +76,7 @@ export function ServerList() {
             required="required"
             placeholder="https://mastodon.social"
           />
-          <button type="submit">+ Add Instance</button>
+          <button className="button primary" type="submit">+ Add Instance</button>
         </form>
       </div>
       {showServers ? (

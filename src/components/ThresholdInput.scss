@@ -12,7 +12,7 @@
 
   input[type="range"] {
     cursor: pointer;
-    @media (max-width: 24em) {
+    @media (max-width: 20em) {
       display: none;
     }
   }
