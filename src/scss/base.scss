@@ -33,6 +33,15 @@ a {
   }
 }
 
+b,
+strong {
+  font-weight: bolder;
+}
+
+small {
+  font-size: 80%;
+}
+
 h1,
 h2,
 h3,
@@ -48,7 +57,34 @@ code {
     monospace;
 }
 
+button,
 input,
+optgroup,
+select,
 textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
   max-width: 100%;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+  height: auto;
 }

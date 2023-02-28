@@ -12,15 +12,21 @@
 
 .server-list--form {
   display: flex;
-  margin: .5em;
   padding: .5em 0 0;
   position: relative;
   width: 100%;
 
-  input {
+  >input {
     flex-grow: 1;
-    min-width: 40vw;
+    flex-shrink: 1;
   }
+  >button{
+    font-size: small;
+    @media (min-width: 30em) {
+      font-size: unset;
+    }
+  }
+
 }
 
 .status-count {
