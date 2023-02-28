@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ThresholdInput from '../components/ThresholdInput';
 import Trends from '../components/Trends';
 import { getConfig, updateServerMinTootThreshold } from '../redux/myniverse';
+import InfoBubbleIcon from "../components/InfoBubbleIcon";
 
 export default function ServerTrends(props) {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export default function ServerTrends(props) {
 
   return (
     <>
-      <div className="filter server-min-troot-threshold">
+      <div className="filter">
         <div className="label">min Toots</div>
         <ThresholdInput
           currentMinTootThreshold={currentMinTootThreshold}
@@ -37,6 +38,7 @@ export default function ServerTrends(props) {
           maxValue={20000}
         />
         <label>
+          &#32;&nbsp;
           <input
             type="checkbox"
             checked={isDefault}
@@ -49,9 +51,10 @@ export default function ServerTrends(props) {
                 );
               }
             }}
-          />
+          />&nbsp;
           use global
         </label>
+        <InfoBubbleIcon className="server-min-troot-threshold" />
       </div>
       <Trends trends={trends} minTootThreshold={currentMinTootThreshold} />
     </>

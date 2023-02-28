@@ -3,11 +3,24 @@
   display: inline-flex;
   justify-content: right;
   text-align: right;
+  vertical-align: middle;
 
   .threshold-input--value {
     font-weight: bold;
     margin-left: .25em;
     text-align: right;
+  }
+
+  @media (min-width: 20em) {
+    // Remove input[type="number"] arrows.
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
   }
 
   input[type="range"] {
