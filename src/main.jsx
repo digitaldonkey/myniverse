@@ -1,6 +1,6 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 import { configureStore } from '@reduxjs/toolkit';
-import React from 'react';
-import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import {
   FLUSH,
@@ -14,9 +14,12 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist-indexeddb-storage';
 import { PersistGate } from 'redux-persist/integration/react';
-import App from './App';
 import { rootReducer } from './app/store';
 import reportWebVitals from './reportWebVitals';
+
+
+// import App from './App';
+import App from './App.jsx'
 
 const persistConfig = {
   key: 'root',
@@ -37,10 +40,7 @@ const store = configureStore({
 
 let persistor = persistStore(store);
 
-const container = document.getElementById('root');
-const root = createRoot(container);
-
-root.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -48,9 +48,13 @@ root.render(
       </PersistGate>
     </Provider>
   </React.StrictMode>,
-);
+)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+
+

@@ -1,17 +1,17 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import './App.scss';
-import Colors from './Colors';
-import { TrendsGlobal } from './TrendsGlobal/TrendsGlobal';
+import Colors from './Colors.jsx';
 import './scss/base.scss';
 import './scss/global.scss';
 import './scss/react-tooltip.scss';
-import { ServerList } from './serverList/ServerList';
+import { ServerList } from './serverList/ServerList.jsx';
+import { TrendsGlobal } from './TrendsGlobal/TrendsGlobal.jsx';
 
 function App() {
   const trendsPos = useRef(null);
   const scrollToTrends = () => trendsPos.current.scrollIntoView();
   const serversPos = useRef(null);
-  const scrollToServers = (e) => {
+  const scrollToServers = () => {
     serversPos.current.scrollIntoView();
   };
 
@@ -25,11 +25,11 @@ function App() {
           <a href="#servers" onClick={scrollToServers}>
             below
           </a>{' '}
-          servers with status 'active'
+          servers with status `active`
         </p>
 
         <div ref={trendsPos}></div>
-        <TrendsGlobal />
+		<TrendsGlobal />
 
         <div ref={serversPos}></div>
         <ServerList />
@@ -42,5 +42,4 @@ function App() {
     </>
   );
 }
-
-export default App;
+export default App
