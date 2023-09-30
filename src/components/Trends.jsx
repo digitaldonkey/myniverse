@@ -16,7 +16,7 @@ export default function Trends(props) {
   if (orderedTrends.length) {
     return (
       <div className="trends">
-        {orderedTrends.map((trend, i) => {
+        {orderedTrends.map((trend) => {
           const data = [];
           let dataMaxValue = 0;
 

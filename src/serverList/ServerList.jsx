@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import { Tooltip } from 'react-tooltip';
@@ -330,7 +330,7 @@ export function ServerList() {
           >
             Update the trends on this instance.
             <ul>
-              <li>If instance is "disabled" it will become "active"</li>
+              <li>If instance is `disabled` it will become `active`</li>
               <li>
                 If instance has trends they will be added or aggregated at
                 global trends
@@ -350,7 +350,7 @@ export function ServerList() {
             Add all peers of this instance to the server list.
             <ul>
               <li>
-                Only peers fulfilling the "peer settings" filter will be added
+                Only peers fulfilling the `peer settings` filter will be added
               </li>
               <li>
                 This will trigger at least one request per per peered instance!
