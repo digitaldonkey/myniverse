@@ -4,6 +4,7 @@ import ThresholdInput from '../components/ThresholdInput';
 import Trends from '../components/Trends';
 import { getConfig, updateServerMinTootThreshold } from '../redux/myniverse';
 import InfoBubbleIcon from "../components/InfoBubbleIcon";
+import StatsIcon from "../components/StatsIcon.jsx";
 
 export default function ServerTrends(props) {
   const dispatch = useDispatch();
@@ -20,10 +21,14 @@ export default function ServerTrends(props) {
     }
   }, [serverDefaultTootThreshold, minTootThreshold]);
 
+  if (!trends.length){
+    return null;
+  }
   return (
     <>
-      <div className="filter">
-        <div className="label">min Toots</div>
+      <div className="filter filter-distplay-stats">
+        <StatsIcon />
+        <label className="label">min toot
         <ThresholdInput
           currentMinTootThreshold={currentMinTootThreshold}
           action={(e) => {
@@ -37,6 +42,7 @@ export default function ServerTrends(props) {
           }}
           maxValue={20000}
         />
+        </label>
         <label>
           &#32;&nbsp;
           <input
@@ -54,7 +60,7 @@ export default function ServerTrends(props) {
           />&nbsp;
           use global
         </label>
-        <InfoBubbleIcon className="server-min-troot-threshold" />
+        <InfoBubbleIcon className="server-min-troots" />
       </div>
       <Trends trends={trends} minTootThreshold={currentMinTootThreshold} />
     </>

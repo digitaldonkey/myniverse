@@ -4,11 +4,11 @@ import {
   addPeerInstances,
   deleteServer,
   forceUpdateInstanceInfo,
-  getServerTrends, updateInstancesByStatus,
+  getServerTrends,
   updateServerUri
 } from "../redux/myniverse";
 import './Server.scss';
-import { getServerStatus, getStatusIcon } from "./ServerStatus";
+import { getStatusIcon } from "./ServerStatus";
 import ServerTrends from './ServerTrends';
 import InfoBubbleIcon from "../components/InfoBubbleIcon";
 
@@ -136,14 +136,6 @@ export default function Server(props) {
               }}
             >
               Update this instance
-            </button>
-            <button
-              className="button primary"
-              onClick={() => {
-                dispatch(updateInstancesByStatus(getServerStatus(['new'])));
-              }}
-            >
-              Update all new instances
             </button>
           </div>
 

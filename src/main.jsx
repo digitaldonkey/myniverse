@@ -11,19 +11,28 @@ import {
   REHYDRATE,
   persistReducer,
   persistStore,
+  createMigrate
 } from 'redux-persist';
 import storage from 'redux-persist-indexeddb-storage';
 import { PersistGate } from 'redux-persist/integration/react';
 import { rootReducer } from './app/store';
 import reportWebVitals from './reportWebVitals';
-
-
-// import App from './App';
 import App from './App.jsx'
+
+const migrations = {
+  0: (state) => {
+    state.myniverse.config.ui = {
+      activeTab: 0
+    }
+    return state;
+  }
+}
 
 const persistConfig = {
   key: 'root',
+  version: 1,
   storage: storage('myniverse'),
+  migrate: createMigrate(migrations)
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
