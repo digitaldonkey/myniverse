@@ -25,6 +25,9 @@
 
   input[type="range"] {
     cursor: pointer;
+    margin-right: .25em;
+    margin-left: .25em;
+
     @media (max-width: 20em) {
       display: none;
     }

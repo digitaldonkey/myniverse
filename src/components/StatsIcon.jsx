@@ -4,11 +4,11 @@ export default function StatsIcon(props) {
       className="svg-status-icon"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
       width="2em"
       height="2em"
       viewBox="0 0 459.75 459.75"
-      xml:space="preserve"
+      xmlSpace="preserve"
     ><defs>
       <style>{`.svg-status-icon{ fill: var(--color-text); }`}</style>
       </defs>

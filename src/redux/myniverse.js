@@ -12,7 +12,7 @@ const initialState = {
       blacklist: ['activitypub-troll.cf'],
     },
     serverFilter: {
-      status: ['new', 'active'],
+      status: ['new', 'active', 'unreachable'],
       orderBy: 'domain_count',
     },
     trendsFilter: {
