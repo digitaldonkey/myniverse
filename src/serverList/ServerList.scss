@@ -2,18 +2,15 @@
   margin-top: .5em;
 }
 
-.button-server-list-toggle {
-  font-size: large;
-}
-
 .button-peer-settings-toggle {
   float: right;
 }
 
 .server-list--form {
   display: flex;
-  padding: .5em 0 0;
+  //padding: .5em 0 0;
   position: relative;
+  max-width: 30em;
   width: 100%;
 
   >input {
@@ -24,54 +21,81 @@
   .button{
     margin: 0;
     font-size: small;
-    @media (min-width: 30em) {
-      font-size: unset;
-    }
+    //@media (min-width: 30em) {
+    //  font-size: unset;
+    //}
   }
-
 }
 
 .status-count {
-  margin: .25em 0;
   width: 100%;
 
   .list {
     padding: 0;
+    margin: 0;
     width: inherit;
-    @media (min-width: 30em) {
-      align-items: center;
-      display: flex;
-      min-height: 2.2em;
-      padding: .25em .5em;
-    }
+    //@media (min-width: 30em) {
+    //  align-items: center;
+    //  display: flex;
+    //  min-height: 2.2em;
+    //  padding: .25em .5em;
+    //}
   }
 
   .item {
-    display: flex;
-    justify-content: space-between;
+    display: inline-flex;
+    //justify-content: space-around;
     align-items: center;
-
     list-style-type: none;
-    margin-right: .5em;
+    padding-right: 1em;
+    //font-weight: bold;
+    line-height: 1.8;
+
+    svg {
+      margin-left: .1em;
+      margin-right: .3em;
+      width: 1em;
+      height: 1em;
+    }
+    &.item-active svg {
+      fill: var(--color-success);
+    }
 
     &:nth-child(odd) {
-      background: var(--background-light);
+      //background: var(--background-light);
     }
 
-    @media (min-width: 30em) {
-      flex-direction: column;
-    }
+    //@media (min-width: 30em) {
+    //  flex-direction: column;
+    //  align-items: center;
+    //}
 
     > span{
-      &:first-child{
-        margin-right: .5em;
+      margin-right: .5em;
+    }
+    @media (max-width: 30em) {
+      > span:first-of-type {
+        display: none;
       }
-      @media (min-width: 30em) {
-        margin: .25em;
-      }
-
     }
   }
+}
+
+.filter-distplay-stats {
+  display: inline-flex;
+  align-items: center;
+  line-height: 2;
+  padding: .5em 0;
+  >svg {
+    margin-left: .25em;
+    margin-right: .75em;
+  }
+}
+
+.new-items-info {
+  margin: 1em;
+  padding: .5em;
+  color: var(--rt-color-warning);
 }
 
 .filter-order {

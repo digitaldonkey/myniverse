@@ -4,7 +4,7 @@ import { fetchInstanceData } from '../serverList/ServerAPI';
 
 const initialState = {
   config: {
-    serverDefaultTootThreshold: 5000, // Default value for Servers
+    serverDefaultTootThreshold: 270, // Default value for Servers
     peering: {
       minUserCount: 5000, // Minimum User count for a Server to be added id using "add peers".
       minTootCount: 1000, // Minimum Toot count for a Server to be added id using "add peers".
@@ -18,13 +18,16 @@ const initialState = {
     trendsFilter: {
       minToots: 100,
       minUrls: 2,
-      maxTotal: 2,
+      maxTotal: 12,
     },
     minRefreshTime: {
       // Time to wait before requesting update from server.
       instance: 1000 * 60 * 120, // 120min 7200000
       trends: 1000 * 60 * 120, // 120min
     },
+    ui: {
+      activeTab: 0,
+    }
   },
   servers: {
     'https://social.donkeymedia.u': {
@@ -101,6 +104,9 @@ export const myniverse = createSlice({
     updateConfig: (state, action) => {
       state.config = { ...state.config, ...action.payload };
     },
+    setActiveTab: (state, action) => {
+      state.config.ui = { ...state.config.ui, ...action.payload };
+    },
   },
 
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
@@ -144,6 +150,7 @@ export const {
   updateServerMinTootThreshold,
   updateConfig,
   deleteTrend,
+  setActiveTab,
 } = myniverse.actions;
 
 // SYNC
@@ -177,7 +184,7 @@ export const updateServerUri = (url, newUrl) => (dispatch, getState) => {
   }
 };
 
-export const forceUpdateInstanceInfo = (server) => (dispatch, getState) => {
+export const forceUpdateInstanceInfo = (server) => (dispatch) => {
   delete server.lastUpdate;
   dispatch(updateinstanceInfo(server));
 };
@@ -437,6 +444,8 @@ export const updateInstancesByStatus = createAsyncThunk(
 // can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const getConfig = (state) => state.myniverse.config;
+
+export const getActiveTab = (state) => state.myniverse.config.ui;
 
 export const getTrendsList = (state) => {
   return makeArray(state.myniverse.trends);

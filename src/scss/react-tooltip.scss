@@ -22,12 +22,17 @@
   width: max-content;
   will-change: opacity, visibility;
   z-index: 999;
-  max-width: calc(100% - 1em);
+  line-height: 1.4;
+  max-width: 36em;
 
   ul {
     margin-bottom: .5em;
     margin-top: .5em;
     padding-left: 1.5em;
+  }
+
+  li {
+    margin-bottom: .5em;
   }
 }
 
