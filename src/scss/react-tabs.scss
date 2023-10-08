@@ -22,9 +22,9 @@
     cursor: pointer;
 
     &--selected {
-      background: var(--color-text);
-      border-color: #aaa;
-      color: black;
+      background: var(--background-color);
+      border-color: var(--color-text);
+      color: var(--color-text);
       border-radius: 5px 5px 0 0;
     }
 
