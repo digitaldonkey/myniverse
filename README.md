@@ -2,6 +2,7 @@
 
 enables you to check out trending topics on multiple Mastodon instances in parallel. 
 
+You can use it on [myniverse.org](https://myniverse.org/)
 
 ## Available Scripts
 
